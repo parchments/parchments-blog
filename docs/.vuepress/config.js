@@ -38,69 +38,47 @@ module.exports = {
   },
   themeConfig: {
 		logo: '/img/kai.jpg',
-    sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
+		sidebarDepth: 1, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
 		displayAllHeaders: true, // 默认值：false
-    lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间
-    nav: [
-      // { text: '面试题精选', link: '/guide/' },//指的是根目录的md文件 也就是 README.md 里面的内容
-      // { text: '插件汇总', link: '/guide/' },
-      // { text: '前端算法', link: '/guide/' },
-      { text: '工作心得', link: '/guide/' },
-      { text: '个人简历', link: '/resume/' },
-      {
-        text: '开源',
-        ariaLabel: '前后分离',
-        items: [
-          { text: 'money2uppercase', link: 'https://www.npmjs.com/package/money2uppercase' },
-          { text: 'vue-preview-editor', link: 'https://www.npmjs.com/package/vue-preview-editor' },
-					{ text: 'GitHub', link: 'https://github.com/parchments' }
-        ]
-      }
-    ],
-	
-	// 	sidebar: {
-	// 		'/foo/': [
-	// 		'',     /* /foo/ */
-	// 		'one',  /* /foo/one.html */
-	// 		'two'   /* /foo/two.html */
-	// 	  ],
-	
-	// 	  '/bar/': [
-	// 		'',      /* /bar/ */
-	// 		'three', /* /bar/three.html */
-	// 		'four'   /* /bar/four.html */
-	// 	  ],
-	
-	// 	  // fallback
-	// 	  '/': [
-	// 		'',        /* / */
-	// 		'contact', /* /contact.html */
-	// 		'about'    /* /about.html */
-	// 	  ]
-	// 	},
-	sidebar: [
-      {
-        title: 'guide',   // 必要的
-        path: '/guide/',      // 可选的, 应该是一个绝对路径
-        children: [
-					{
-						title: 't1',
-						path: '/guide/t1/',
-					},
-					{
-						title: 't2',
-						path: '/guide/t2/',
-					}
-					// '/accumulate/test', 以docs为根目录来查找文件 
-					// 上面地址查找的是：docs>accumulate>JS>test.md 文件
-					// 自动加.md 每个子选项的标题 是该md文件中的第一个h1/h2/h3标题
-        ]
-      },
-		{
-			title: '个人简历',
-			path: '/resume/'
-		}
-		]
+		lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间
+		nav: [
+		  // { text: '面试题精选', link: '/guide/' },//指的是根目录的md文件 也就是 README.md 里面的内容
+		  // { text: '插件汇总', link: '/guide/' },
+		  // { text: '前端算法', link: '/guide/' },
+			{ text: '前端进阶1', link: '/advanced/' },
+			{ text: '前端进阶', link: '/foo/', items:[
+				{ text: '1' , link:'/foo/one'},
+				{ text: '2' , link:'/foo/two'},
+				{ text: '2' , link:'/foo/about'},
+				{ text: '2' , link:'/foo/contact'}
+			]},
+		  { text: '个人简历', link: '/resume/' },
+		  {
+			text: '开源',
+			items: [
+				{ text: 'money2uppercase', link: 'https://www.npmjs.com/package/money2uppercase' },
+				{ text: 'vue-preview-editor', link: 'https://www.npmjs.com/package/vue-preview-editor' },
+				{ text: 'GitHub', link: 'https://github.com/parchments' }
+			]
+		  }
+		],
+		sidebar: 'auto'
+		// sidebar: [
+		// 	{
+		// 		title: '前端进阶',   // 必要的
+		// 		path: '/advanced/',      // 可选的, 应该是一个绝对路径
+		// 		children: [
+		// 			{title: '面试技巧', path: '/advanced/interviewSkills/',},
+		// 			{title: '面试题', path: '/advanced/interviewQuestions/',},
+		// 			{title: '前端算法题', path: '/advanced/algorithm/',}
+		// 			// '/advanced/t1', 以docs为根目录来查找文件 
+		// 			// 上面地址查找的是：docs>advanced>t1>README.md 文件
+		// 			// 自动加.md 每个子选项的标题 是该md文件中的第一个h1/h2/h3标题
+		// 		]
+		// 	},
+		// 	{title: '个人简历', path: '/resume/'},
+			
+		// ]
 	},
 	search: true,
 	searchMaxSuggestions: 10,

@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /img/kai.jpg
-actionText: 快速上手 →
+actionText: Let's Go →
 actionLink: /guide/
 features:
 - title: 简洁至上
