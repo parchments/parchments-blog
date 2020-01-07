@@ -5,14 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
 	"dev": "vuepress dev docs",
-	"build": "vuepress build docs"
-=======
-		"dev": "vuepress dev docs",
-		"docs:build": "vuepress build docs",
+	"build": "vuepress build docs",
     "d": "bash deploy.sh"
->>>>>>> 63550a13d6112d3eae90bcf673416e77d4ef10b8
   },
   "author": "parchments",
   "license": "ISC"
