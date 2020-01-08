@@ -21,14 +21,14 @@
 	
 -   **我的联系方式：**  
     邮箱：  
-	[1093473647.com](http://1093473647.com)  
+	[1093473647@qq.com](http://1093473647@qq.com)  
     微信：  
     ![](https://oscimg.oschina.net/oscnet/up-22ec72db78c99f52ea22b13b21a454e86a6.png)
     
     
 
 ## 学习网站
-&emsp;&emsp;&emsp;&emsp; [Github](https://github.com/parchments)  
+&emsp;&emsp;&emsp;&emsp; [Github](https://github.com)  
 &emsp;&emsp;[掘金](https://juejin.im/timeline)  
 &emsp;&emsp;[W3cschool](https://www.w3cschool.cn/)  
 &emsp;&emsp;[腾讯课堂](https://ke.qq.com/)  
@@ -38,10 +38,9 @@
 &emsp;&emsp;本人经历过了互联网软件创业公司，互联网招商公司，中药材拍卖公司对我的锤炼，
 不仅能独立承担起前端部分的开发工作，而且开发模式也从纯静态到前后分离的蜕变。  
 
-
 **&emsp;&emsp;1、对自身：**  
-&emsp;&emsp;&emsp;&emsp;对自己代码有一定的要求，必须要写的简洁、明了，对同事也是建议如此，
-能大大减少后期维护的时间，提高迭代开发效率。  
+&emsp;&emsp;&emsp;&emsp;对自己的代码有一定的要求，必须要写的简洁、明了、开发环境足够清晰的注释、最大程度抽离组件共用化。对同事也是建议如此，
+能大大减少后期维护的时间，快速定位问题和解决问题，从而提高开发效率。  
 
 **&emsp;&emsp;2、对开发中遇到问题：**  
 &emsp;&emsp;&emsp;&emsp;最重要的是找出问题，马上处理，再来讨论谁对谁错。
@@ -51,21 +50,29 @@
 &emsp;&emsp;&emsp;&emsp;例一：原型做了一半或者缺少很多必要的备注，无论给设计师还是前端、后台，都会有一大堆疑问，期间顺利沟通还好，如果原型同事不是时刻有空，那是不是增加了沟通成本，往大了说，经常这样是会导致项目延期的。  
 &emsp;&emsp;&emsp;&emsp;例二：前后端对接接口，发现各个模块之间接口不统一、缺少字段备注、类型不标注，也是增加了沟通成本。
 所以说，完善的原型，完善的接口不仅仅是对自己负责，也是对同事、对公司负责；不仅不会浪费自己的时间，也不会浪费大家的时间。  
-&emsp;&emsp;&emsp;&emsp;另外：鉴于例一和例二，个人会在开发前跟同事约定好一些东西，我提出来了是一回事，至于他们做的怎么样是另一回事。我相信如果没有约定和统一，很多公司的前后台对接都存在一定的问题，再者如果没人指出来，肯定会浪费更多人力物力，所以我认为在适当的时候“敢于提出团队存在的问题并提出合理化建议”也是我的优势，不怕做出头鸟，因为这也可能会影响我的开发进度。  
+&emsp;&emsp;&emsp;&emsp;另外：鉴于例一和例二，个人会在开发前跟同事约定好一些东西，我提出来了是一回事，至于他们做的怎么样是另一回事（事实证明，我提出来后，经过大家的努力，确实有提高前后对接的效率）。我相信如果没有约定和统一，很多公司的前后台对接都存在类似的问题，再者如果没人指出来，肯定会浪费更多人力物力，所以我认为在适当的时候“敢于提出团队存在的问题并提出合理化建议”也是我的优势。可能有人对我总结有看法，没关系，这就是我目前经历过的工作心得。  
 &emsp;&emsp;&emsp;&emsp;前后对接约定：  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;a、约定是前端跨域还是后台开启  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;b、接口统一使用测试环境  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;c、后台接口命名方式统一  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;d、接口文档写清楚（返回参数备注清楚，有类型要罗列所有类型情况）  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;e、传参方式统一  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;f、分页统一  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;g、默认排序统一  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;h、返回数据格式统一（json 结构 成功失败返回值统一）  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;i、有重启要告知  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;a、后台所有的字段跟着原型走，方便其他后台、前端和测试查询  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;b、约定是前端跨域还是后台开启  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;c、接口统一使用测试环境  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;d、后台接口命名方式统一  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;e、接口文档写清楚（返回参数备注清楚，有类型要罗列所有类型情况）  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;f、传参方式统一  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;g、分页统一  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;h、默认排序统一  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;i、返回数据格式统一（json 结构 成功失败返回值统一）  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;j、有重启要告知  
   
 ## 期望公司
 
-&emsp;&emsp;公司规模大不大没关系，最重要的是有发展前景，同时有着上进和互相帮助的技术团队，另外，我期望的公司起码是前后分离的公司，福利方面期望人性化，有替员工着想，最简单的例子：放假通知提前发放
+**1、公司性质：**   
+&emsp;&emsp;不希望进入外包公司，因为不能吃甲方baba公司的零食(开玩笑~)，还是比较喜欢有归属感的公司。   
+**2、公司规模：**   
+&emsp;&emsp;公司规模大不大没关系，最重要的是有发展前景、有自己的盈利产品。  
+**3、前端团队：**   
+&emsp;&emsp;喜欢前后分离的工作模式。喜欢有上进和热衷专研前端前沿技术的前端团队，并且还有互相帮助、乐于分享的技术氛围。在此想说的是，有着前端团队非常重要，特别是在遇到难题的时候，大家一起想办法专研讨论，能快速发现并解决问题，同时还能提升自己的眼界和拓宽解决问题的思路。  
+**4、福利方面：**   
+&emsp;&emsp;福利方面期望人性化，有替员工着想，最简单的例子：放假通知提前发放
 
 ## 职业规划
 ```
