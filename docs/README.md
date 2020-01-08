@@ -1,19 +1,20 @@
 ---
 home: true
-heroImage: /img/kai.jpg
-actionText: Let's Go →
-actionLink: /guide/
+heroImage: https://oscimg.oschina.net/oscnet/up-ed8164885cc17a1f2732eab905cdb1d87c8.gif
+# actionText: Let's Go →
+actionLink: /templatePlugs/baseTemplate/
+description: '前端，学无止境'
 features:
-- title: 简洁至上
-  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-- title: Vue驱动
-  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-- title: 高性能
-  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
-footer: MIT Licensed | Copyright © 2018-present Evan You
+- title: 模板总结
+  details: 封装通用后台管理系统、移动端模板，减少重复并且不必要的工作量，从而直接画页面并对接接口。
+- title: 面试经典
+  details: 参考面试技巧，协助你在面试过程中游刃有余，规避一些隐形的坑，从而更好地体现自己的价值。
+- title: 前端进阶
+  details: 前端更新速度快，但是需要巩固基础，也要懂得原理，能让自己在开发过程中更加自信。
+footer: MIT Licensed | Copyright © 2018-present parchments
 ---
 
-```
+<!-- ```
 .
 ├── docs
 │   ├── .vuepress (可选的)
@@ -36,5 +37,5 @@ footer: MIT Licensed | Copyright © 2018-present Evan You
 │   └── config.md
 │ 
 └── package.json
-```
+``` -->
 

@@ -3,7 +3,7 @@
 **模板设想：**  
 &emsp;&emsp;不想每次做新项目都要重新创建项目，封装分页、接口、面包屑、路由、请求、区分开发环境、配置、兼容等等一系列基础工作，浪费很多时间，故做了一个后台系统的基础模板，能减少重复并且不必要的工作量，从而能快速画出页面并对接接口。   
 
-**模板预览：**  [http://github.com.io/parchments/parchments-blog](http://github.com.io/parchments/parchments-blog)  
+**模板预览：**  [https://parchments.github.io/vue-admin-template](https://parchments.github.io/vue-admin-template)  
 
 **模板功能：**    
     <table>
@@ -55,3 +55,10 @@
     
   
 **模板截图：**    
+![](https://oscimg.oschina.net/oscnet/up-8be46288eb653187476ccde1f3a7422ad50.png)
+
+![](https://oscimg.oschina.net/oscnet/up-3c9749ea63797ffd152417d4da74a10df15.png)
+
+![](https://oscimg.oschina.net/oscnet/up-37480aed6b59e3467a6a836531476a4e236.png)
+
+![](https://oscimg.oschina.net/oscnet/up-bfd112506b794049853f907b447ad3dff52.png)

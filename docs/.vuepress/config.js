@@ -26,42 +26,46 @@
 // 
 // 
 module.exports = {
-    title: '羊皮卷',
+    title: 'parchments',
     description: null,
     // 注入到当前页面的 HTML <head> 中的标签
     head: [
-        ['link', { rel: 'icon', href: '/img/favicon.ico' }], // 增加一个自定义的 favicon(网页标签的图标)
+        ['link', { rel: 'icon', href: 'https://oscimg.oschina.net/oscnet/up-ed8164885cc17a1f2732eab905cdb1d87c8.gif' }], // 增加一个自定义的 favicon(网页标签的图标)
     ],
     base: '/parchments-blog/', // 这是部署到github相关的配置
     markdown: {
         lineNumbers: true // 代码块显示行号
     },
     themeConfig: {
-        logo: '/img/kai.jpg',
-        sidebarDepth: 1, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
+        logo: 'https://oscimg.oschina.net/oscnet/up-ed8164885cc17a1f2732eab905cdb1d87c8.gif',
+        sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
         displayAllHeaders: true, // 默认值：false
         lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间
         nav: [
             {
-                text: '模板总结', link: '/templatePlugs/', items: [
-                    // { text: '/', link: '/templatePlugs/' },
-                    { text: '基础模板', link: '/templatePlugs/baseTemplate/' },
-                    { text: '常用插件', link: '/templatePlugs/basePlugs/' }
-                ]
+                text: '模板总结', link: '/templatePlugs/'
+                // , items: [
+                //     // { text: '/', link: '/templatePlugs/' },
+                //     { text: '基础模板', link: '/templatePlugs/test/baseTemplate/' },
+                //     { text: '基础模板', link: '/templatePlugs/test/aaa/' },
+                //     { text: '常用插件', link: '/templatePlugs/basePlugs/' }
+                // ]
             },
             {
-                text: '面试经典', link: '/interview/', items: [
-                    // { text: '/', link: '/interview/' },
-                    { text: '面试技巧', link: '/interview/interviewSkills' },
-                    { text: '面试题', link: '/interview/interviewQuestions' },
-                    { text: '算法题', link: '/interview/algorithm' }
-                ]
+                text: '面试经典', link: '/interview/'
+                // , items: [
+                //     // { text: '/', link: '/interview/' },
+                //     { text: '面试技巧', link: '/interview/interviewSkills' },
+                //     { text: '面试题', link: '/interview/interviewQuestions' },
+                //     { text: '算法题', link: '/interview/algorithm' }
+                // ]
             },
             {
-                text: '前端进阶', link: '/advanced/', items: [
-                    { text: 'Js基础', link: '/advanced/js' },
-                    { text: 'Vue原理', link: '/advanced/vue' }
-                ]
+                text: '前端进阶', link: '/advanced/'
+                // , items: [
+                //     { text: 'Js基础', link: '/advanced/js' },
+                //     { text: 'Vue原理', link: '/advanced/vue' }
+                // ]
             },
             { text: '个人简历', link: '/resume/' },
             {
@@ -73,23 +77,50 @@ module.exports = {
                 ]
             }
         ],
-        sidebar: 'auto'
-        // sidebar: [
-        // 	{
-        // 		title: '前端进阶',   // 必要的
-        // 		path: '/advanced/',      // 可选的, 应该是一个绝对路径
-        // 		children: [
-        // 			{title: '面试技巧', path: '/advanced/interviewSkills/',},
-        // 			{title: '面试题', path: '/advanced/interviewQuestions/',},
-        // 			{title: '前端算法题', path: '/advanced/algorithm/',}
-        // 			// '/advanced/t1', 以docs为根目录来查找文件 
-        // 			// 上面地址查找的是：docs>advanced>t1>README.md 文件
-        // 			// 自动加.md 每个子选项的标题 是该md文件中的第一个h1/h2/h3标题
-        // 		]
-        // 	},
-        // 	{title: '个人简历', path: '/resume/'},
+        // sidebar: 'auto'
+        sidebar: {
+            '/templatePlugs/':[
+                {
+                    title: '模板总结', // 侧边栏名称
+                    collapsable: true, // 可折叠
+                    children: [
+                        '/templatePlugs/test/baseTemplate',//基础模板
+                        '/templatePlugs/basePlugs',//常用插件
+                    ]
+                }
+            ],
+            '/interview/':[
+                {
+                    title: '面试经典', // 侧边栏名称
+                    collapsable: true, // 可折叠
+                    children: [
+                        '/interview/interviewSkills',//面试技巧
+                        '/interview/interviewQuestions',//面试题
+                        '/interview/interviewQuestions'//常用插件
+                    ]
+                }
+            ],
+            '/advanced/':[
+                {
+                    title: '前端进阶', // 侧边栏名称
+                    collapsable: true, // 可折叠
+                    children: [
+                        '/advanced/js',//js
+                        '/advanced/vue'//vue
+                    ]
+                }
+            ],
+            // '/interview/':[
+            //     '',
+            //     'interviewSkills',
+            //     'interviewQuestions',
+            //     'algorithm'
+            // ],
+            '/resume/':[
+                '',
+            ]
 
-        // ]
+        }
     },
     search: true,
     searchMaxSuggestions: 10,
