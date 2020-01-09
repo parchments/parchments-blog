@@ -38,7 +38,7 @@ module.exports = {
     },
     themeConfig: {
         logo: 'https://oscimg.oschina.net/oscnet/up-ed8164885cc17a1f2732eab905cdb1d87c8.gif',
-        sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
+        sidebarDepth: 1, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
         displayAllHeaders: true, // 默认值：false
         lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间
         nav: [
@@ -79,9 +79,18 @@ module.exports = {
         ],
         // sidebar: 'auto'
         sidebar: {
-            '/templatePlugs/':[
+            '/templatePlugs/': [
+                '',
                 {
-                    title: '模板总结', // 侧边栏名称
+                    title: '基础模板', // 侧边栏名称
+                    collapsable: true, // 可折叠
+                    children: [
+                        '/templatePlugs/test/baseTemplate',//基础模板
+                        '/templatePlugs/basePlugs',//常用插件
+                    ]
+                },
+                {
+                    title: '常用插件', // 侧边栏名称
                     collapsable: true, // 可折叠
                     children: [
                         '/templatePlugs/test/baseTemplate',//基础模板
@@ -89,7 +98,7 @@ module.exports = {
                     ]
                 }
             ],
-            '/interview/':[
+            '/interview/': [
                 {
                     title: '面试经典', // 侧边栏名称
                     collapsable: true, // 可折叠
@@ -100,7 +109,7 @@ module.exports = {
                     ]
                 }
             ],
-            '/advanced/':[
+            '/advanced/': [
                 {
                     title: '前端进阶', // 侧边栏名称
                     collapsable: true, // 可折叠
@@ -116,7 +125,7 @@ module.exports = {
             //     'interviewQuestions',
             //     'algorithm'
             // ],
-            '/resume/':[
+            '/resume/': [
                 '',
             ]
 
