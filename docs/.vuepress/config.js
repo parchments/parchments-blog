@@ -93,7 +93,7 @@ module.exports = {
                     title: '常用插件', // 侧边栏名称
                     collapsable: true, // 可折叠
                     children: [
-                        '/templatePlugs/test/baseTemplate',//基础模板
+                        '/templatePlugs/test/aaa',//基础模板
                         '/templatePlugs/basePlugs',//常用插件
                     ]
                 }
@@ -112,10 +112,19 @@ module.exports = {
             '/advanced/': [
                 {
                     title: '前端进阶', // 侧边栏名称
-                    collapsable: true, // 可折叠
+                    collapsable: false, // 可折叠
                     children: [
+						'',
                         '/advanced/js',//js
-                        '/advanced/vue'//vue
+                        '/advanced/vue/yuanLi/yunXingJiZhi_1',
+                        '/advanced/vue/yuanLi/xiangYingShiYuanLi_2',
+                        '/advanced/vue/yuanLi/yiLaiShouJi_3',
+                        '/advanced/vue/yuanLi/vD_4',
+                        '/advanced/vue/yuanLi/muBanBianYi_5',
+                        '/advanced/vue/yuanLi/diffPatch_6',
+                        '/advanced/vue/yuanLi/asyncNextTick_7',
+                        '/advanced/vue/yuanLi/vuex_8',
+                        '/advanced/vue/yuanLi/zongJie_9'
                     ]
                 }
             ],
