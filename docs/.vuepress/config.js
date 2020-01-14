@@ -37,7 +37,7 @@ module.exports = {
         lineNumbers: true // 代码块显示行号
     },
     themeConfig: {
-        logo: 'https://oscimg.oschina.net/oscnet/up-ed8164885cc17a1f2732eab905cdb1d87c8.gif',
+        logo: 'https://oscimg.oschina.net/oscnet/up-8b990797096568e069198c7046f2b753434.gif',
         sidebarDepth: 1, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
         displayAllHeaders: true, // 默认值：false
         lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间
