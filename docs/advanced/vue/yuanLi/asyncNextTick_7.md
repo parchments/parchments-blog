@@ -6,17 +6,16 @@
 
 假设我们有如下这么一种情况。
 
-```
+```html
 <template>
   <div>
     <div>{{number}}</div>
     <div @click="handleClick">click</div>
   </div>
 </template>
-
 ```
 
-```
+```javascript
 export default {
     data () {
         return {
@@ -31,7 +30,6 @@ export default {
         }
     }
 }
-
 ```
 
 当我们按下 click 按钮的时候，`number` 会被循环增加1000次。
@@ -56,7 +54,7 @@ Vue.js 实现了一个 `nextTick` 函数，传入一个 `cb` ，这个 `cb`
 
 `setTimeout` 会在 task 中创建一个事件 `flushCallbacks` ，`flushCallbacks` 则会在执行时将 `callbacks` 中的所有 `cb` 依次执行。
 
-```
+```javascript
 let callbacks = [];
 let pending = false;
 
@@ -77,7 +75,6 @@ function flushCallbacks () {
         copies[i]();
     }
 }
-
 ```
 
 ## 再写 Watcher
@@ -92,7 +89,7 @@ function flushCallbacks () {
 
 实现 `update` 方法，在修改数据后由 `Dep` 来调用， 而 `run` 方法才是真正的触发 `patch` 更新视图的方法。
 
-```
+```javascript
 let uid = 0;
 
 class Watcher {
@@ -116,16 +113,15 @@ class Watcher {
 
 不知道大家注意到了没有？笔者已经将 `Watcher` 的 `update` 中的实现改成了
 
-```
+```javascript
 queueWatcher(this);
-
 ```
 
 将 `Watcher` 对象自身传递给 `queueWatcher` 方法。
 
 我们来实现一下 `queueWatcher` 方法。
 
-```
+```javascript
 let has = {};
 let queue = [];
 let waiting = false;
@@ -142,7 +138,6 @@ function queueWatcher(watcher) {
         }
     }
 }
-
 ```
 
 我们使用一个叫做 `has` 的 map，里面存放 id -> true ( false ) 的形式，用来判断是否已经存在相同的 `Watcher` 对象 （这样比每次都去遍历 `queue` 效率上会高很多）。
@@ -153,7 +148,7 @@ function queueWatcher(watcher) {
 
 ## flushSchedulerQueue
 
-```
+```javascript
 function flushSchedulerQueue () {
     let watcher, id;
 
@@ -166,44 +161,40 @@ function flushSchedulerQueue () {
 
     waiting  = false;
 }
-
 ```
 
 ## 举个例子
 
-```
+```javascript
 let watch1 = new Watcher();
 let watch2 = new Watcher();
 
 watch1.update();
 watch1.update();
 watch2.update();
-
 ```
 
 我们现在 new 了两个 `Watcher` 对象，因为修改了 `data` 的数据，所以我们模拟触发了两次 `watch1` 的 `update` 以及 一次 `watch2` 的 `update`。
 
 假设没有批量异步更新策略的话，理论上应该执行 `Watcher` 对象的 `run`，那么会打印。
 
-```
+```javascript
 watch1 update
 watch1视图更新啦～
 watch1 update
 watch1视图更新啦～
 watch2 update
 watch2视图更新啦～
-
 ```
 
 实际上则执行
 
-```
+```javascript
 watch1 update
 watch1 update
 watch2 update
 watch1视图更新啦～
 watch2视图更新啦～
-
 ```
 
 这就是异步更新策略的效果，相同的 `Watcher` 对象会在这个过程中被剔除，在下一个 tick 的时候去更新视图，从而达到对我们第一个例子的优化。

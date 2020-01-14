@@ -6,7 +6,7 @@
 
 我们现在有这么一个 Vue 对象。
 
-```
+```javascript
 new Vue({
     template: 
         `<div>
@@ -24,7 +24,7 @@ new Vue({
 
 然后我们做了这么一个操作。
 
-```
+```javascript
 this.text3 = 'modify text3';
 
 ```
@@ -35,7 +35,7 @@ this.text3 = 'modify text3';
 
 假设我们现在有一个全局的对象，我们可能会在多个 Vue 对象中用到它进行展示。
 
-```
+```javascript
 let globalObj = {
     text1: 'text1'
 };
@@ -60,9 +60,8 @@ let o2 = new Vue({
 
 这个时候，我们执行了如下操作。
 
-```
+```javascript
 globalObj.text1 = 'hello,text1';
-
 ```
 
 我们应该需要通知 `o1` 以及 `o2` 两个vm实例进行视图的更新，「依赖收集」会让 `text1` 这个数据知道“哦～有两个地方依赖我的数据，我变化的时候需要通知它们～”。
@@ -77,7 +76,7 @@ globalObj.text1 = 'hello,text1';
 
 首先我们来实现一个订阅者 Dep ，它的主要作用是用来存放 `Watcher` 观察者对象。
 
-```
+```javascript
 class Dep {
     constructor () {
         /* 用来存放Watcher对象的数组 */
@@ -96,7 +95,6 @@ class Dep {
         })
     }
 }
-
 ```
 
 为了便于理解我们只实现了添加的部分代码，主要是两件事情：
@@ -106,7 +104,7 @@ class Dep {
 
 ## 观察者 Watcher
 
-```
+```javascript
 class Watcher {
     constructor () {
         /* 在new一个Watcher对象时将该对象赋值给Dep.target，在get中会用到 */
@@ -118,7 +116,6 @@ class Watcher {
         console.log("视图更新啦～");
     }
 }
-
 Dep.target = null;
 
 ```
@@ -129,7 +126,7 @@ Dep.target = null;
 
 我们在闭包中增加了一个 Dep 类的对象，用来收集 `Watcher` 对象。在对象被「读」的时候，会触发 `reactiveGetter` 函数把当前的 `Watcher` 对象（存放在 Dep.target 中）收集到 `Dep` 类中去。之后如果当该对象被「**写**」的时候，则会触发 `reactiveSetter` 方法，通知 `Dep` 类调用 `notify` 来触发所有 `Watcher` 对象的 `update` 方法更新对应视图。
 
-```
+```javascript
 function defineReactive (obj, key, val) {
     /* 一个Dep类对象 */
     const dep = new Dep();
@@ -160,7 +157,6 @@ class Vue {
         console.log('render~', this._data.test);
     }
 }
-
 ```
 
 ## 小结

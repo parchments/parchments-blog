@@ -8,7 +8,7 @@
 
 VNode 归根结底就是一个 JavaScript 对象，只要这个类的一些属性可以正确直观地描述清楚当前节点的信息即可。我们来实现一个简单的 `VNode` 类，加入一些基本属性，为了便于理解，我们先不考虑复杂的情况。
 
-```
+```javascript
 class VNode {
     constructor (tag, data, children, text, elm) {
         /*当前节点的标签名*/
@@ -23,23 +23,21 @@ class VNode {
         this.elm = elm;
     }
 }
-
 ```
 
 比如我目前有这么一个 Vue 组件。
 
-```
+```javascript
 <template>
   <span class="demo" v-show="isShow">
     This is a span.
   </span>
 </template>
-
 ```
 
 用 JavaScript 代码形式就是这样的。
 
-```
+```javascript
 function render () {
     return new VNode(
         'span',
@@ -60,12 +58,11 @@ function render () {
         [ new VNode(undefined, undefined, undefined, 'This is a span.') ]
     );
 }
-
 ```
 
 看看转换成 VNode 以后的情况。
 
-```
+```javascript
 {
     tag: 'span',
     data: {
@@ -93,34 +90,31 @@ function render () {
         }
     ]
 }
-
 ```
 
 然后我们可以将 VNode 进一步封装一下，可以实现一些产生常用 VNode 的方法。
 
 -   创建一个空节点
 
-```
+```javascript
 function createEmptyVNode () {
     const node = new VNode();
     node.text = '';
     return node;
 }
-
 ```
 
 -   创建一个文本节点
 
-```
+```javascript
 function createTextVNode (val) {
   return new VNode(undefined, undefined, undefined, String(val));
 }
-
 ```
 
 -   克隆一个 VNode 节点
 
-```
+```javascript
 function cloneVNode (node) {
     const cloneVnode = new VNode(
         node.tag,
@@ -131,7 +125,6 @@ function cloneVNode (node) {
     );
     return cloneVnode;
 }
-
 ```
 
 总的来说，VNode 就是一个 JavaScript 对象，用 JavaScript 对象的属性来描述当前节点的一些状态，用 VNode 节点的形式来模拟一棵 Virtual DOM 树。

@@ -8,13 +8,13 @@
 
 由于解析过程比较复杂，直接上代码可能会导致不了解这部分内容的同学一头雾水。所以笔者准备提供一个 template 的示例，通过这个示例的变化来看解析的过程。但是解析的过程及结果都是将最重要的部分抽离出来展示，希望能让读者更好地了解其核心部分的实现。
 
-```
+```javascript
 <div :class="c" class="demo" v-if="isShow">
     <span v-for="item in sz">{{item}}</span>
 </div>
 ```
 
-```
+```html
 var html = '<div :class="c" class="demo" v-if="isShow"><span v-for="item in sz">{{item}}</span></div>';
 ```
 
@@ -26,7 +26,7 @@ var html = '<div :class="c" class="demo" v-if="isShow"><span v-for="item in sz">
 
 这个过程比较复杂，会涉及到比较多的正则进行字符串解析，我们来看一下得到的 AST 的样子。
 
-```
+```javascript
 {
     /* 标签属性的map，记录了标签上属性 */
     'attrsMap': {
@@ -81,7 +81,7 @@ var html = '<div :class="c" class="demo" v-if="isShow"><span v-for="item in sz">
 
 首先我们定义一下接下来我们会用到的正则。
 
-```
+```javascript
 const ncname = '[a-zA-Z_][\\w\\-\\.]*';
 const singleAttrIdentifier = /([^\s"'<>/=]+)/
 const singleAttrAssign = /(?:=)/
@@ -111,7 +111,7 @@ const forAliasRE = /(.*?)\s+(?:in|of)\s+(.*)/
 
 因为我们解析 template 采用循环进行字符串匹配的方式，所以每匹配解析完一段我们需要将已经匹配掉的去掉，头部的指针指向接下来需要匹配的部分。
 
-```
+```javascript
 function advance (n) {
     index += n
     html = html.substring(n)
@@ -124,7 +124,7 @@ function advance (n) {
 
 调用 `advance` 函数
 
-```
+```javascript
 advance(43);
 ```
 
@@ -136,7 +136,7 @@ advance(43);
 
 首先我们需要定义个 `parseHTML` 函数，在里面我们循环解析 template 字符串。
 
-```
+```javascript
 function parseHTML () {
     while(html) {
         let textEnd = html.indexOf('<');
@@ -163,7 +163,7 @@ function parseHTML () {
 
 我们来写一个 `parseStartTag` 函数，用来解析起始标签（`"<div :class="c" class="demo" v-if="isShow">"`部分的内容）。
 
-```
+```javascript
 function parseStartTag () {
     const start = html.match(startTagOpen);
     if (start) {
@@ -194,7 +194,7 @@ function parseStartTag () {
 
 首先用 `startTagOpen` 正则得到标签的头部，可以得到 `tagName`（标签名称），同时我们需要一个数组 `attrs` 用来存放标签内的属性。
 
-```
+```javascript
 const start = html.match(startTagOpen);
 const match = {
     tagName: start[1],
@@ -206,7 +206,7 @@ advance(start[0].length);
 
 接下来使用 `startTagClose` 与 `attribute` 两个正则分别用来解析标签结束以及标签内的属性。这段代码用 `while` 循环一直到匹配到 `startTagClose` 为止，解析内部所有的属性。
 
-```
+```javascript
 let end, attr
 while (!(end = html.match(startTagClose)) && (attr = html.match(attribute))) {
     advance(attr[0].length)
@@ -227,7 +227,7 @@ if (end) {
 
 此外，我们需要维护一个 **stack** 栈来保存已经解析好的标签头，这样我们可以根据在解析尾部标签的时候得到所属的层级关系以及父标签。同时我们定义一个 `currentParent` 变量用来存放当前标签的父标签节点的引用， `root` 变量用来指向根标签节点。
 
-```
+```javascript
 const stack = [];
 let currentParent, root;
 ```
@@ -236,7 +236,7 @@ let currentParent, root;
 
 知道这个以后，我们优化一下 `parseHTML` ，在 `startTagOpen` 的 `if` 逻辑中加上新的处理。
 
-```
+```javascript
 if (html.match(startTagOpen)) {
     const startTagMatch = parseStartTag();
     const element = {
@@ -265,7 +265,7 @@ if (html.match(startTagOpen)) {
 
 我们将 `startTagMatch` 得到的结果首先封装成 `element` ，这个就是最终形成的 AST 的节点，标签节点的 type 为 1。
 
-```
+```javascript
 const startTagMatch = parseStartTag();
 const element = {
     type: 1,
@@ -279,7 +279,7 @@ const element = {
 
 然后让 `root` 指向根节点的引用。
 
-```
+```javascript
 if(!root){
     root = element
 }
@@ -287,7 +287,7 @@ if(!root){
 
 接着我们将当前节点的 `element` 放入父节点 `currentParent` 的 `children` 数组中。
 
-```
+```javascript
 if(currentParent){
     currentParent.children.push(element);
 }
@@ -295,7 +295,7 @@ if(currentParent){
 
 最后将当前节点 `element` 压入 stack 栈中，并将 `currentParent` 指向当前节点，因为接下去下一个解析如果还是头标签或者是文本的话，会成为当前节点的子节点，如果是尾标签的话，那么将会从栈中取出当前节点，这种情况我们接下来要讲。
 
-```
+```javascript
 stack.push(element);
 currentParent = element;
 continue;
@@ -303,7 +303,7 @@ continue;
 
 其中的 `makeAttrsMap` 是将 attrs 转换成 map 格式的一个方法。
 
-```
+```javascript
 function makeAttrsMap (attrs) {
     const map = {}
     for (let i = 0, l = attrs.length; i < l; i++) {
@@ -317,7 +317,7 @@ function makeAttrsMap (attrs) {
 
 同样，我们在 `parseHTML` 中加入对尾标签的解析函数，为了匹配如“`</div>`”。
 
-```
+```javascript
 const endTagMatch = html.match(endTag)
  if (endTagMatch) {
     advance(endTagMatch[0].length);
@@ -332,7 +332,7 @@ const endTagMatch = html.match(endTag)
 
 其实不然，比如说可能会存在自闭合的标签，如“`<br />`”，或者是写了“`<span>`”但是没有加上“`< /span>`”的情况，这时候就要找到 stack 中的第二个位置才能找到同名标签。
 
-```
+```javascript
 function parseEndTag (tagName) {
     let pos;
     for (pos = stack.length - 1; pos >= 0; pos--) {
@@ -352,7 +352,7 @@ function parseEndTag (tagName) {
 
 最后是解析文本，这个比较简单，只需要将文本取出，然后有两种情况，一种是普通的文本，直接构建一个节点 push 进当前 `currentParent` 的 children 中即可。还有一种情况是文本是如“{{item}}”这样的 Vue.js 的表达式，这时候我们需要用 `parseText` 来将表达式转化成代码。
 
-```
+```javascript
 text = html.substring(0, textEnd)
 advance(textEnd)
 let expression;
@@ -373,7 +373,7 @@ continue;
 
 我们会用到一个 `parseText` 函数。
 
-```
+```javascript
 function parseText (text) {
     if (!defaultTagRE.test(text)) return;
 
@@ -403,19 +403,19 @@ function parseText (text) {
 
 举个例子，如果我们有这样一个文本。
 
-```
+```html
 <div>hello,{{name}}.</div>
 ```
 
 最终得到 `tokens`。
 
-```
+```javascript
 tokens = ['hello,', _s(name), '.'];
 ```
 
 最终通过 `join` 返回表达式。
 
-```
+```javascript
 'hello' + _s(name) + '.';
 ```
 
@@ -425,7 +425,7 @@ tokens = ['hello,', _s(name), '.'];
 
 我们只需要在解析头标签的内容中加入这两个表达式的解析函数即可，在这时“`v-for`”之类指令已经在属性解析时存入了 `attrsMap` 中了。
 
-```
+```javascript
 if (html.match(startTagOpen)) {
     const startTagMatch = parseStartTag();
     const element = {
@@ -456,7 +456,7 @@ if (html.match(startTagOpen)) {
 
 首先我们需要定义一个 `getAndRemoveAttr` 函数，用来从 `el` 的 `attrsMap` 属性或是 `attrsList` 属性中取出 `name` 对应值。
 
-```
+```javascript
 function getAndRemoveAttr (el, name) {
     let val
     if ((val = el.attrsMap[name]) != null) {
@@ -474,7 +474,7 @@ function getAndRemoveAttr (el, name) {
 
 比如说解析示例的 div 标签属性。
 
-```
+```javascript
 getAndRemoveAttr(el, 'v-for');
 ```
 
@@ -484,7 +484,7 @@ getAndRemoveAttr(el, 'v-for');
 
 “v-for”会将指令解析成 `for` 属性以及 `alias` 属性，而“v-if”会将条件都存入 `ifConditions` 数组中。
 
-```
+```javascript
 function processFor (el) {
     let exp;
     if ((exp = getAndRemoveAttr(el, 'v-for'))) {
@@ -523,7 +523,7 @@ function processIf (el) {
 
 得到如下结果。
 
-```
+```javascript
 {
     'attrsMap': {
         ':class': 'c',
@@ -567,7 +567,7 @@ function processIf (el) {
 
 首先实现一个 `isStatic` 函数，传入一个 node 判断该 node 是否是静态节点。判断的标准是当 type 为 2（表达式节点）则是非静态节点，当 type 为 3（文本节点）的时候则是静态节点，当然，如果存在 `if` 或者 `for`这样的条件的时候（表达式节点），也是非静态节点。
 
-```
+```javascript
 function isStatic (node) {
     if (node.type === 2) {
         return false
@@ -583,7 +583,7 @@ function isStatic (node) {
 
 `markStatic` 为所有的节点标记上 `static`，遍历所有节点通过 `isStatic` 来判断当前节点是否是静态节点，此外，会遍历当前节点的所有子节点，如果子节点是非静态节点，那么当前节点也是非静态节点。
 
-```
+```javascript
 function markStatic (node) {
     node.static = isStatic(node);
     if (node.type === 1) {
@@ -602,7 +602,7 @@ function markStatic (node) {
 
 接下来是 `markStaticRoots` 函数，用来标记 `staticRoot`（静态根）。这个函数实现比较简单，简单来将就是如果当前节点是静态节点，同时满足该节点并不是只有一个文本节点左右子节点（作者认为这种情况的优化消耗会大于收益）时，标记 `staticRoot` 为 true，否则为 false。
 
-```
+```javascript
 function markStaticRoots (node) {
     if (node.type === 1) {
         if (node.static && node.children.length && !(
@@ -622,7 +622,7 @@ function markStaticRoots (node) {
 
 有了以上的函数，就可以实现 `optimize` 了。
 
-```
+```javascript
 function optimize (rootAst) {
     markStatic(rootAst);
     markStaticRoots(rootAst);
@@ -635,7 +635,7 @@ function optimize (rootAst) {
 
 首先带大家感受一下真实的 Vue.js 编译得到的结果。
 
-```
+```javascript
 with(this){
     return (isShow) ? 
     _c(
@@ -659,7 +659,7 @@ with(this){
 
 首先是第一层 div 节点。
 
-```
+```javascript
 render () {
     return isShow ? (new VNode('div', {
         'staticClass': 'demo',
@@ -670,7 +670,7 @@ render () {
 
 然后我们在 `children` 中加上第二层 span 及其子文本节点节点。
 
-```
+```javascript
 /* 渲染v-for列表 */
 function renderList (val, render) {
     let ret = new Array(val.length);
@@ -701,7 +701,7 @@ render () {
 
 首先实现一个处理 `if` 条件的 `genIf` 函数。
 
-```
+```javascript
 function genIf (el) {
     el.ifProcessed = true;
     if (!el.ifConditions.length) {
@@ -715,7 +715,7 @@ function genIf (el) {
 
 然后是处理 `for` 循环的函数。
 
-```
+```javascript
 function genFor (el) {
     el.forProcessed = true;
 
@@ -735,7 +735,7 @@ function genFor (el) {
 
 处理文本节点的函数。
 
-```
+```javascript
 function genText (el) {
     return `_v(${el.expression})`;
 }
@@ -751,7 +751,7 @@ genElement会根据当前节点是否有 `if` 或者 `for` 标记然后判�
 
 `genNode` 则是根据 `type` 来判断该节点是用文本节点 `genText` 还是标签节点 `genElement` 来处理。
 
-```
+```javascript
 function genNode (el) {
     if (el.type === 1) {
         return genElement(el);
@@ -791,7 +791,7 @@ function genElement (el) {
 
 最后我们使用上面的函数来实现 `generate`，其实很简单，我们只需要将整个 AST 传入后判断是否为空，为空则返回一个 div 标签，否则通过 `generate` 来处理。
 
-```
+```javascript
 function generate (rootAst) {
     const code = rootAst ? genElement(rootAst) : '_c("div")'
     return {

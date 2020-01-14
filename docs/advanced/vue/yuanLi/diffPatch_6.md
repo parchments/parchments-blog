@@ -12,7 +12,7 @@
 
 这就需要依赖一层适配层了，将不同平台的 API 封装在内，以同样的接口对外提供。
 
-```
+```javascript
 const nodeOps = {
     setTextContent (text) {
         if (platform === 'weex') {
@@ -34,7 +34,6 @@ const nodeOps = {
         //......
     }
 }
-
 ```
 
 举个例子，现在我们有上述一个 `nodeOps` 对象做适配，根据 platform 区分不同平台来执行当前平台对应的API，而对外则是提供了一致的接口，供 Virtual DOM 来调用。
@@ -45,7 +44,7 @@ const nodeOps = {
 
 `insert` 用来在 `parent` 这个父节点下插入一个子节点，如果指定了 `ref` 则插入到 `ref` 这个子节点前面。
 
-```
+```javascript
 function insert (parent, elm, ref) {
     if (parent) {
         if (ref) {
@@ -57,13 +56,11 @@ function insert (parent, elm, ref) {
         }
     }
 }
-
 ```
 
 `createElm` 用来新建一个节点， `tag` 存在创建一个标签节点，否则创建一个文本节点。
 
-```
-
+```javascript
 function createElm (vnode, parentElm, refElm) {
     if (vnode.tag) {
         insert(parentElm, nodeOps.createElement(vnode.tag), refElm);
@@ -71,35 +68,32 @@ function createElm (vnode, parentElm, refElm) {
         insert(parentElm, nodeOps.createTextNode(vnode.text), refElm);
     }
 }
-
 ```
 
 `addVnodes` 用来批量调用 `createElm` 新建节点。
 
-```
+```javascript
 function addVnodes (parentElm, refElm, vnodes, startIdx, endIdx) {
     for (; startIdx <= endIdx; ++startIdx) {
         createElm(vnodes[startIdx], parentElm, refElm);
     }
 }
-
 ```
 
 `removeNode` 用来移除一个节点。
 
-```
+```javascript
 function removeNode (el) {
     const parent = nodeOps.parentNode(el);
     if (parent) {
         nodeOps.removeChild(parent, el);
     }
 }
-
 ```
 
 `removeVnodes` 会批量调用 `removeNode` 移除节点。
 
-```
+```javascript
 function removeVnodes (parentElm, vnodes, startIdx, endIdx) {
     for (; startIdx <= endIdx; ++startIdx) {
         const ch = vnodes[startIdx]
@@ -108,7 +102,6 @@ function removeVnodes (parentElm, vnodes, startIdx, endIdx) {
         }
     }
 }
-
 ```
 
 ## patch
@@ -125,7 +118,7 @@ diff 算法是通过同层的树节点进行比较而非对树进行逐层搜索
 
 `patch` 的过程相当复杂，我们先用简单的代码来看一下。
 
-```
+```javascript
 function patch (oldVnode, vnode, parentElm) {
     if (!oldVnode) {
         addVnodes(parentElm, null, vnode, 0, vnode.length - 1);
@@ -147,16 +140,15 @@ function patch (oldVnode, vnode, parentElm) {
 
 首先在 `oldVnode`（老 VNode 节点）不存在的时候，相当于新的 VNode 替代原本没有的节点，所以直接用 `addVnodes` 将这些节点批量添加到 `parentElm` 上。
 
-```
+```javascript
 if (!oldVnode) {
     addVnodes(parentElm, null, vnode, 0, vnode.length - 1);
 }
-
 ```
 
 然后同理，在 `vnode`（新 VNode 节点）不存在的时候，相当于要把老的节点删除，所以直接使用 `removeVnodes` 进行批量的节点删除即可。
 
-```
+```javascript
 else if (!vnode) {
     removeVnodes(parentElm, oldVnode, 0, oldVnode.length - 1);
 }
@@ -165,21 +157,20 @@ else if (!vnode) {
 
 最后一种情况，当 `oldVNode` 与 `vnode` 都存在的时候，需要判断它们是否属于 `sameVnode`（相同的节点）。如果是则进行patchVnode（比对 VNode ）操作，否则删除老节点，增加新节点。
 
-```
+```javascript
 if (sameVnode(oldVNode, vnode)) {
     patchVnode(oldVNode, vnode);
 } else {
     removeVnodes(parentElm, oldVnode, 0, oldVnode.length - 1);
     addVnodes(parentElm, null, vnode, 0, vnode.length - 1);
 }
-
 ```
 
 ## sameVnode
 
 上面这些比较好理解，下面我们来看看什么情况下两个 VNode 会属于 `sameVnode` （相同的节点）呢？
 
-```
+```javascript
 function sameVnode () {
     return (
         a.key === b.key &&
@@ -197,7 +188,6 @@ function sameInputType (a, b) {
     const typeB = (i = b.data) && (i = i.attrs) && i.type
     return typeA === typeB
 }
-
 ```
 
 `sameVnode` 其实很简单，只有当 `key`、 `tag`、 `isComment`（是否为注释节点）、 `data`同时定义（或不定义），同时满足当标签类型为 input 的时候 type 相同（某些浏览器不支持动态修改<input>类型，所以他们被视为不同类型）即可。
@@ -206,7 +196,7 @@ function sameInputType (a, b) {
 
 之前patch的过程还剩下 `patchVnode` 这个函数没有讲，这也是最复杂的一个，我们现在来看一下。因为这个函数是在符合 `sameVnode` 的条件下触发的，所以会进行「**比对**」。
 
-```
+```javascript
 function patchVnode (oldVnode, vnode) {
     if (oldVnode === vnode) {
         return;
@@ -242,31 +232,28 @@ function patchVnode (oldVnode, vnode) {
 
 首先在新老 VNode 节点相同的情况下，就不需要做任何改变了，直接 return 掉。
 
-```
+```javascript
 if (oldVnode === vnode) {
     return;
 }
-
 ```
 
 下面的这种情况也比较简单，在当新老 VNode 节点都是 `isStatic`（静态的），并且 `key` 相同时，只要将 `componentInstance` 与 `elm` 从老 VNode 节点“拿过来”即可。这里的 `isStatic` 也就是前面提到过的「编译」的时候会将静态节点标记出来，这样就可以跳过比对的过程。
 
-```
+```javascript
 if (vnode.isStatic && oldVnode.isStatic && vnode.key === oldVnode.key) {
     vnode.elm = oldVnode.elm;
     vnode.componentInstance = oldVnode.componentInstance;
     return;
 }
-
 ```
 
 接下来，当新 VNode 节点是文本节点的时候，直接用 `setTextContent` 来设置 text，这里的 `nodeOps` 是一个适配层，根据不同平台提供不同的操作平台 DOM 的方法，实现跨平台。
 
-```
+```javascript
 if (vnode.text) {
     nodeOps.setTextContent(elm, vnode.text);
 }
-
 ```
 
 当新 VNode 节点是非文本节点当时候，需要分几种情况。
@@ -276,7 +263,7 @@ if (vnode.text) {
 -   同理当只有 `oldch` 存在时，说明需要将老节点通过 `removeVnodes` 全部清除。
 -   最后一种情况是当只有老节点是文本节点的时候，清除其节点文本内容。
 
-```
+```javascript
 if (oldCh && ch && (oldCh !== ch)) {
     updateChildren(elm, oldCh, ch);
 } else if (ch) {
@@ -287,14 +274,13 @@ if (oldCh && ch && (oldCh !== ch)) {
 } else if (oldVnode.text) {
     nodeOps.setTextContent(elm, '')
 }
-
 ```
 
 ## updateChildren
 
 接下来就要讲一下 `updateChildren` 函数了。
 
-```
+```javascript
 function updateChildren (parentElm, oldCh, newCh) {
     let oldStartIdx = 0;
     let newStartIdx = 0;
@@ -358,7 +344,6 @@ function updateChildren (parentElm, oldCh, newCh) {
         removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx);
     }
 }
-
 ```
 
 看到代码那么多先不要着急，我们还是一点一点地讲解。
@@ -369,7 +354,7 @@ function updateChildren (parentElm, oldCh, newCh) {
 
 接下来是一个 `while` 循环，在这过程中，`oldStartIdx`、`newStartIdx`、`oldEndIdx` 以及 `newEndIdx` 会逐渐向中间靠拢。
 
-```
+```javascript
 while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) 
 ```
 
@@ -377,7 +362,7 @@ while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx)
 
 首先当 `oldStartVnode` 或者 `oldEndVnode` 不存在的时候，`oldStartIdx` 与 `oldEndIdx` 继续向中间靠拢，并更新对应的 `oldStartVnode` 与 `oldEndVnode` 的指向（注：下面讲到的 `oldStartIdx`、`newStartIdx`、`oldEndIdx` 以及 `newEndIdx` 移动都会伴随着 `oldStartVnode`、`newStartVnode`、`oldEndVnode` 以及 `newEndVnode` 的指向的变化，之后的部分只会讲 `Idx` 的移动）。
 
-```
+```javascript
 if (!oldStartVnode) {
     oldStartVnode = oldCh[++oldStartIdx];
 } else if (!oldEndVnode) {
@@ -388,7 +373,7 @@ if (!oldStartVnode) {
 
 接下来这一块，是将 `oldStartIdx`、`newStartIdx`、`oldEndIdx` 以及 `newEndIdx` 两两比对的过程，一共会出现 2*2=4 种情况。
 
-```
+```javascript
  else if (sameVnode(oldStartVnode, newStartVnode)) {
     patchVnode(oldStartVnode, newStartVnode);
     oldStartVnode = oldCh[++oldStartIdx];
@@ -407,8 +392,7 @@ if (!oldStartVnode) {
     nodeOps.insertBefore(parentElm, oldEndVnode.elm, oldStartVnode.elm);
     oldEndVnode = oldCh[--oldEndIdx];
     newStartVnode = newCh[++newStartIdx];
-} 
-
+}
 ```
 
 首先是 `oldStartVnode` 与 `newStartVnode` 符合 `sameVnode` 时，说明老 VNode 节点的头部与新 VNode 节点的头部是相同的 VNode 节点，直接进行 `patchVnode`，同时 `oldStartIdx` 与 `newStartIdx` 向后移动一位。
@@ -427,7 +411,7 @@ if (!oldStartVnode) {
 
 最后是当以上情况都不符合的时候，这种情况怎么处理呢？
 
-```
+```javascript
 else {
     let elmToMove = oldCh[idxInOld];
     if (!oldKeyToIdx) oldKeyToIdx = createKeyToOldIdx(oldCh, oldStartIdx, oldEndIdx);
@@ -458,48 +442,44 @@ function createKeyToOldIdx (children, beginIdx, endIdx) {
     }
     return map
 }
-
 ```
 
 `createKeyToOldIdx` 的作用是产生 `key` 与 `index` 索引对应的一个 map 表。比如说：
 
-```
+```javascript
 [
     {xx: xx, key: 'key0'},
     {xx: xx, key: 'key1'}, 
     {xx: xx, key: 'key2'}
 ]
-
 ```
 
 在经过 `createKeyToOldIdx` 转化以后会变成：
 
-```
+```javascript
 {
     key0: 0, 
     key1: 1, 
     key2: 2
 }
-
 ```
 
 我们可以根据某一个 key 的值，快速地从 `oldKeyToIdx`（`createKeyToOldIdx` 的返回值）中获取相同 key 的节点的索引 `idxInOld`，然后找到相同的节点。
 
 如果没有找到相同的节点，则通过 `createElm` 创建一个新节点，并将 `newStartIdx` 向后移动一位。
 
-```
+```javascript
 if (!idxInOld) {
     createElm(newStartVnode, parentElm);
     newStartVnode = newCh[++newStartIdx];
 }
-
 ```
 
 否则如果找到了节点，同时它符合 `sameVnode`，则将这两个节点进行 `patchVnode`，将该位置的老节点赋值 undefined（之后如果还有新节点与该节点key相同可以检测出来提示已有重复的 key ），同时将 `newStartVnode.elm` 插入到 `oldStartVnode.elm` 的前面。同理，`newStartIdx` 往后移动一位。
 
 ![](https://oscimg.oschina.net/oscnet/up-e38038c9b861e78a862ebdf28ba014ae356.png)
 
-```
+```javascript
 else {
     elmToMove = oldCh[idxInOld];
     if (sameVnode(elmToMove, newStartVnode)) {
@@ -509,19 +489,17 @@ else {
         newStartVnode = newCh[++newStartIdx];
     }
 }
-
 ```
 
 如果不符合 `sameVnode`，只能创建一个新节点插入到 `parentElm` 的子节点中，`newStartIdx` 往后移动一位。
 
 ![](https://oscimg.oschina.net/oscnet/up-daf40defeac35207fe4b4fe695a9f3f5201.png)
 
-```
+```javascript
 else {
     createElm(newStartVnode, parentElm);
     newStartVnode = newCh[++newStartIdx];
 }
-
 ```
 
 最后一步就很容易啦，当 `while` 循环结束以后，如果 `oldStartIdx > oldEndIdx`，说明老节点比对完了，但是新节点还有多的，需要将新节点插入到真实 DOM 中去，调用 `addVnodes` 将这些节点插入即可。
@@ -532,14 +510,13 @@ else {
 
 ![](https://oscimg.oschina.net/oscnet/up-1a2989f006c3c782b5a0b0ed88e4f2ac8a4.png)
 
-```
+```javascript
 if (oldStartIdx > oldEndIdx) {
     refElm = (newCh[newEndIdx + 1]) ? newCh[newEndIdx + 1].elm : null;
     addVnodes(parentElm, refElm, newCh, newStartIdx, newEndIdx);
 } else if (newStartIdx > newEndIdx) {
     removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx);
 }
-
 ```
 
 到这里，比对的核心实现已经讲完了，这部分比较复杂，不过仔细地梳理一下比对的过程，相信一定能够理解得更加透彻的。
