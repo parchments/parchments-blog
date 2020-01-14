@@ -111,11 +111,17 @@ module.exports = {
             ],
             '/advanced/': [
                 {
-                    title: '前端进阶', // 侧边栏名称
+                    title: 'Js', // 侧边栏名称
                     collapsable: false, // 可折叠
                     children: [
 						'',
-                        '/advanced/js',//js
+                        '/advanced/js'//js
+                    ]
+                },
+                {
+                    title: 'Vue',
+                    collapsable: true,
+                    children: [
                         '/advanced/vue/yuanLi/yunXingJiZhi_1',
                         '/advanced/vue/yuanLi/xiangYingShiYuanLi_2',
                         '/advanced/vue/yuanLi/yiLaiShouJi_3',
