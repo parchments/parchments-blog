@@ -94,7 +94,11 @@ module.exports = {
                     collapsable: true, // 可折叠
                     children: [
                         '/templatePlugs/test/aaa',//基础模板
-                        '/templatePlugs/basePlugs',//常用插件
+                        '/templatePlugs/basePlugs',
+                        '/templatePlugs/plugs/moment',//时间格式化插件
+                        '/templatePlugs/plugs/v-viewer',//图片预览插件
+                        '/templatePlugs/plugs/vue-print-nb',//打印插件
+						
                     ]
                 }
             ],
