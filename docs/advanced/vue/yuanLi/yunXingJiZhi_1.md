@@ -77,7 +77,6 @@ compile编译可以分成 `parse`、`optimize` 与 `generate` 三个阶段�
 <div>
     <a>click me</a>
 </div>
-
 ```
 
 这只是一个简单的例子，实际上的节点有更多的属性来标志节点，比如 isStatic （代表是否为静态节点）、 isComment （代表是否为注释节点）等。

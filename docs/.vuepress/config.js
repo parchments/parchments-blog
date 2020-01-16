@@ -85,20 +85,20 @@ module.exports = {
                     title: '基础模板', // 侧边栏名称
                     collapsable: true, // 可折叠
                     children: [
-                        '/templatePlugs/test/baseTemplate',//基础模板
-                        '/templatePlugs/basePlugs',//常用插件
+                        '/templatePlugs/template/vueAdminTemplate',//pc基础模板
+                        '/templatePlugs/template/vueAdminTemplate',//pc基础模板
                     ]
                 },
                 {
                     title: '常用插件', // 侧边栏名称
                     collapsable: true, // 可折叠
                     children: [
-                        '/templatePlugs/test/aaa',//基础模板
-                        '/templatePlugs/basePlugs',
+                        '/templatePlugs/plugs/v-charts',//图标插件
                         '/templatePlugs/plugs/moment',//时间格式化插件
                         '/templatePlugs/plugs/v-viewer',//图片预览插件
                         '/templatePlugs/plugs/vue-print-nb',//打印插件
-						
+                        '/templatePlugs/plugs/vue-particles',//粒子特效插件
+                        '/templatePlugs/plugs/tinymce',//富文本插件
                     ]
                 }
             ],

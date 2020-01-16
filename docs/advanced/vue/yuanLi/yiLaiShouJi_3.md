@@ -19,14 +19,12 @@ new Vue({
         text3: 'text3'
     }
 });
-
 ```
 
 然后我们做了这么一个操作。
 
 ```javascript
 this.text3 = 'modify text3';
-
 ```
 
 我们修改了 `data` 中 `text3` 的数据，但是因为视图中并不需要用到 `text3` ，所以我们并不需要触发上一章所讲的 `cb` 函数来更新视图，调用 `cb` 显然是不正确的。
@@ -39,7 +37,6 @@ this.text3 = 'modify text3';
 let globalObj = {
     text1: 'text1'
 };
-
 let o1 = new Vue({
     template:
         `<div>
@@ -47,7 +44,6 @@ let o1 = new Vue({
         <div>`,
     data: globalObj
 });
-
 let o2 = new Vue({
     template:
         `<div>
@@ -55,7 +51,6 @@ let o2 = new Vue({
         <div>`,
     data: globalObj
 });
-
 ```
 
 这个时候，我们执行了如下操作。
@@ -117,7 +112,6 @@ class Watcher {
     }
 }
 Dep.target = null;
-
 ```
 
 ## 依赖收集

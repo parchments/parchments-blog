@@ -46,7 +46,6 @@ function cb (val) {
     /* 渲染视图 */
     console.log("视图更新啦～");
 }
-
 ```
 
 然后我们定义一个 `defineReactive` ，这个方法通过 `Object.defineProperty` 来实现对对象的「**响应式**」化，入参是一个 obj（需要绑定的对象）、key（obj的某一个属性），val（具体的值）。经过 `defineReactive` 处理以后，我们的 obj 的 key 属性在「读」的时候会触发 `reactiveGetter` 方法，而在该属性被「写」的时候则会触发 `reactiveSetter` 方法。
@@ -65,7 +64,6 @@ function defineReactive (obj, key, val) {
         }
     });
 }
-
 ```
 
 当然这是不够的，我们需要在上面再封装一层 `observer` 。这个函数传入一个 value（需要「**响应式**」化的对象），通过遍历所有属性的方式对该对象的每一个属性都通过 `defineReactive` 处理。（注：实际上 observer 会进行递归调用，为了便于理解去掉了递归的过程）
@@ -80,7 +78,6 @@ function observer (value) {
         defineReactive(value, key, value[key]);
     });
 }
-
 ```
 
 最后，让我们用 `observer` 来封装一个 Vue 吧！
@@ -95,7 +92,6 @@ class Vue {
         observer(this._data);
     }
 }
-
 ```
 
 这样我们只要 new 一个 Vue 对象，就会将 `data` 中的数据进行「**响应式**」化。如果我们对 `data` 的属性进行下面的操作，就会触发 `cb` 方法更新视图。
@@ -107,7 +103,6 @@ let o = new Vue({
     }
 });
 o._data.test = "hello,world.";  /* 视图更新啦～ */
-
 ```
 
 至此，响应式原理已经介绍完了，接下来让我们学习「**响应式系统**」的另一部分 ——「**依赖收集**」。

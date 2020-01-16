@@ -1,7 +1,4 @@
-## Vue-admin-template
-
-## 模板设想  
-&emsp;&emsp;不想每次做新项目都要重新创建项目，封装分页、接口、面包屑、路由、请求、区分开发环境、配置、兼容等等一系列基础工作，浪费很多时间，故做了一个后台系统的基础模板，能减少重复并且不必要的工作量，从而直接画页面并对接接口。   
+# Vue-admin-template  
 
 ## 模板预览  
 [https://parchments.github.io/vue-admin-template](https://parchments.github.io/vue-admin-template)  
