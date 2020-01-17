@@ -9,7 +9,7 @@
 以指令形式使用使用步骤
 
 1、安装 npm i v-charts echarts -S  
-2、main.js引入
+2、引入
 
 ```html
 //组件

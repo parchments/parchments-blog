@@ -1,10 +1,12 @@
 # 富文本 tinymce
 
-个人用法总结：比起百度富文本，tinymce更加轻量，上传图片接口无需再让后台匹配百度富文本所需要的特定格式，也不需要他们配置百度富文本的相应配置。
-
 [Github地址](https://github.com/tinymce/tinymce)
 
-[官网地址](https://www.tiny.cloud/docs/api/tinymce/root_tinymce/)
+[官网地址](https://www.tiny.cloud/docs/api/tinymce/root_tinymce/)  
+
+备注：版本tinymce5.0，如果安装和下载后无法显示富文本可能是版本问题  
+
+个人用法总结：比起百度富文本，tinymce更加轻量，上传图片接口无需再让后台匹配百度富文本所需要的特定格式，也不需要他们配置百度富文本的相应配置。
 
 1、安装依赖：
 
