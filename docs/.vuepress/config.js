@@ -127,7 +127,7 @@ module.exports = {
                 },
                 {
                     title: 'Vue原理',
-                    collapsable: true,
+                    collapsable: false,
                     children: [
                         '/advanced/vue/yuanLi/yunXingJiZhi_1',
                         '/advanced/vue/yuanLi/xiangYingShiYuanLi_2',

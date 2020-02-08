@@ -1,24 +1,33 @@
 ## 个人信息
 
--   **我的描述:**  
-	戴眼镜，短头发，自认为阳光的前端男孩
-    
--   **我的开源:**  
-	[Github](https://github.com/parchments): Github地址  
-    [money2uppercase](https://www.npmjs.com/package/money2uppercase): 金额转大写  
-    [vue-preview-editor](https://www.npmjs.com/package/vue-preview-editor): 富文本预览插件  
+-   **求职方向:**  
+	全职前端开发工程师(PC+H5、主Vue+Element、Vant)  
 
+-   **我的描述:**  
+	戴眼镜，短头发，自认为阳光的男孩  
+	设计专业毕业，4年前端开发经验，目前开发模式为前后分离  
+	兴趣爱好是乒乓球   
 
 -   **我的优势:**  
 	1、敬业有梦想，脸皮还厚   
     2、喜欢前端又有动力，舍得投资自己   
     3、对代码有要求，必须过自己那关  
+
+-   **独立开发经验:**  
+    网站：[优亚官网](http://www.uniasia.com.cn/)、[慧招网PC](http://www.hvzhao.com/)、[光明招商网PC](http://gmcyzs.com/)、[招商产业地图](http://zhongshan.hvzhao.com/)  
+	H5：[优亚官网H5(F12手机预览模式)](http://www.uniasia.com.cn/mobile/index)、[慧招网H5](http://m.hvzhao.com/)、现货晒场2.0 H5、[拍卖中心H5(参与)](https://pmwechat.paohe.cn/login) 、等等  
+	系统：权限管理中心、决策系统、拍卖管理系统 (系属内部管理系统，暂不附链接)  
 	
 -   **我的联系方式：**  
     邮箱：  
 	[1093473647@qq.com](http://1093473647@qq.com)  
     微信：  
-    ![](https://oscimg.oschina.net/oscnet/up-22ec72db78c99f52ea22b13b21a454e86a6.png)
+    ![](https://oscimg.oschina.net/oscnet/up-22ec72db78c99f52ea22b13b21a454e86a6.png)  
+    
+-   **我的开源:**  
+	[Github](https://github.com/parchments): Github地址  
+    [money2uppercase](https://www.npmjs.com/package/money2uppercase): 金额转大写  
+    [vue-preview-editor](https://www.npmjs.com/package/vue-preview-editor): 富文本预览插件 
     
     
 

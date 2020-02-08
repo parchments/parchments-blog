@@ -2,7 +2,7 @@
 home: true
 heroImage: https://oscimg.oschina.net/oscnet/up-ed8164885cc17a1f2732eab905cdb1d87c8.gif
 actionText: Let's Go →
-actionLink: /templatePlugs/baseTemplate/
+actionLink: /templatePlugs/
 description: '前端，学无止境'
 features:
 - title: 模板总结
