@@ -13,29 +13,4 @@ features:
   details: 前端更新速度快，但是需要巩固基础，也要懂得原理，能让自己在开发过程中更加自信。
 footer: MIT Licensed | Copyright © 2018-present parchments
 ---
-
-<!-- ```
-.
-├── docs
-│   ├── .vuepress (可选的)
-│   │   ├── components (可选的)
-│   │   ├── theme (可选的)
-│   │   │   └── Layout.vue
-│   │   ├── public (可选的)
-│   │   ├── styles (可选的)
-│   │   │   ├── index.styl
-│   │   │   └── palette.styl
-│   │   ├── templates (可选的, 谨慎配置)
-│   │   │   ├── dev.html
-│   │   │   └── ssr.html
-│   │   ├── config.js (可选的)
-│   │   └── enhanceApp.js (可选的)
-│   │ 
-│   ├── README.md
-│   ├── guide
-│   │   └── README.md
-│   └── config.md
-│ 
-└── package.json
-``` -->
-
+<!-- git subtree push --prefix dist origin gh-pages -->
