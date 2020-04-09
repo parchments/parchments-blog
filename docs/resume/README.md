@@ -15,7 +15,7 @@
 
 -   **独立开发经验:**  
     网站：[优亚官网](http://www.uniasia.com.cn/)、[慧招网PC](http://www.hvzhao.com/)、[光明招商网PC](http://gmcyzs.com/)、[招商产业地图](http://zhongshan.hvzhao.com/)  
-	H5：跑合网H5 2.0版、[优亚官网H5(F12手机预览模式)](http://www.uniasia.com.cn/mobile/index)、[慧招网H5](http://m.hvzhao.com/)、现货晒场2.0 H5、[拍卖中心H5(参与)](https://pmwechat.paohe.cn/login) 、等等  
+	H5：跑合网H5 2.0版、[优亚官网H5(F12手机预览模式)](http://www.uniasia.com.cn/mobile/index)、[慧招网H5](http://m.hvzhao.com/)、现货晒场2.0 H5、<!-- [拍卖中心H5(参与)](https://pmwechat.paohe.cn/login) --> 等等  
 	系统：权限管理中心、决策系统、拍卖管理系统 (系属内部管理系统，暂不附链接)  
 	微信小程序: 有梦必达
 	
