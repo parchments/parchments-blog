@@ -83,15 +83,32 @@ module.exports = {
                 '',
                 {
                     title: '基础模板', // 侧边栏名称
-                    collapsable: false, // 可折叠
+                    collapsable: true, // 可折叠
                     children: [
-                        '/templatePlugs/template/vueAdminTemplate',//pc基础模板
                         '/templatePlugs/template/vueAdminTemplate',//pc基础模板
                     ]
                 },
                 {
+                    title: '封装Http请求', // 侧边栏名称
+                    collapsable: true, // 可折叠
+                    children: [
+                        '/templatePlugs/httpApi/vueElement',//vue+element
+                        // '/templatePlugs/httpApi/vueElementTs',//vue+element+ts
+                        '/templatePlugs/httpApi/wechat',//微信小程序
+                        '/templatePlugs/httpApi/taro',//京东taro
+                    ]
+                },
+                {
+                    title: 'vue环境变量', // 侧边栏名称
+                    collapsable: true, // 可折叠
+                    children: [
+                        '/templatePlugs/env/vueCli2',
+                        '/templatePlugs/env/vueCli3',
+                    ]
+                },
+                {
                     title: '常用插件', // 侧边栏名称
-                    collapsable: false, // 可折叠
+                    collapsable: true, // 可折叠
                     children: [
                         '/templatePlugs/plugs/v-charts',//图标插件
                         '/templatePlugs/plugs/moment',//时间格式化插件

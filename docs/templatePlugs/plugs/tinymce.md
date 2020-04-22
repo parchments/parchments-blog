@@ -10,9 +10,9 @@
 
 1、安装依赖：
 
-npm install @tinymce/tinymce-vue
+cnpm install @tinymce/tinymce-vue --save
 
-npm install tinymce
+cnpm install tinymce --save
 
 安装之后，在 node_modules 中找到 tinymce目录，然后将 skins 目录拷贝到 **public**目录下
 
@@ -23,6 +23,7 @@ npm install tinymce
 ![](https://oscimg.oschina.net/oscnet/up-8ed4bb6b734c1527543bcfc8ff006f30f56.png)
 
 2、封装编辑器
+新建一个TinymceEditor.vue文件
 
 ```html
 <template>
@@ -77,6 +78,28 @@ export default {
           const img = 'data:image/jpeg;base64,' + blobInfo.base64()
           success(img)
         }
+		//例如
+		// images_upload_handler: (blobInfo, success, failure) => {
+		// 	let params = new FormData();
+		// 	params.append("file", blobInfo.blob());
+		// 	let config = {
+		// 		'contentType': false,
+		// 		'processData': false,
+		// 		headers: {
+		// 		  //'Content-Type': 'multipart/form-data',
+		// 		  'Content-Type': 'application/x-www-form-urlencoded'
+		// 		}
+		// 	}
+		//   // const img = 'data:image/jpeg;base64,' + blobInfo.base64()
+		//   this.$api.xhscApi.common.uploadImage(params,config).then(res => {
+		// 	  if (res.data.retcode === this.$config.RET_CODE.SUCCESS_CODE) {
+		// 		  success(res.data.data.fileUrl)
+		// 	  }
+		// 	  failure('上传失败')
+		//   }).catch(() => {
+		// 	  failure('上传出错')
+		//   })
+		// }
       }
     }
   },
