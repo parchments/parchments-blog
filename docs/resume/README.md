@@ -1,24 +1,26 @@
 ## 个人信息
 
 -   **求职方向:**  
-	全职前端开发工程师(PC+H5、主Vue+Element、Vant)  
+	前端开发工程师  
 
 -   **我的描述:**  
 	戴眼镜，短头发，自认为阳光的男孩  
-	设计专业毕业，4年前端开发经验，目前开发模式为前后分离  
-	兴趣爱好是乒乓球   
+	设计专业毕业，4年前端开发经验  
+	兴趣爱好是乒乓球、桌球   
 
 -   **我的优势:**  
-	1、敬业有梦想，脸皮还厚   
-    2、喜欢前端又有动力，舍得投资自己   
+	1、敬业有梦想，有耐心，脸皮还厚   
+    2、喜欢前端且有动力，舍得投资自己   
     3、对代码有要求，必须过自己那关  
 
 -   **独立开发经验:**  
-    网站：[优亚官网](http://www.uniasia.com.cn/)、[慧招网PC](http://www.hvzhao.com/)、[光明招商网PC](http://gmcyzs.com/)、[招商产业地图](http://zhongshan.hvzhao.com/)  
-	H5：跑合网H5 2.0版、[优亚官网H5(F12手机预览模式)](http://www.uniasia.com.cn/mobile/index)、[慧招网H5](http://m.hvzhao.com/)、现货晒场2.0 H5、<!-- [拍卖中心H5(参与)](https://pmwechat.paohe.cn/login) --> 等等  
-	系统：权限管理中心、决策系统、拍卖管理系统 (系属内部管理系统，暂不附链接)  
-	微信小程序: 有梦必达
-	
+    前后分离，PC、H5、微信小程序，主Vue，框架:Element、Vant、Taro  
+	H5：[现货晒场2.0](https://www.paohe.cn/spotV2/login/)、[慧招网H5](http://m.hvzhao.com/)、[优亚官网H5(F12手机预览模式)](http://www.uniasia.com.cn/mobile/index)、<!-- [拍卖中心H5(参与)](https://pmwechat.paohe.cn/login) --> 等等  
+    网站：[慧招网PC](http://www.hvzhao.com/)、[光明招商网PC](http://gmcyzs.com/)、[优亚官网](http://www.uniasia.com.cn/)、[招商产业地图](http://zhongshan.hvzhao.com/)  
+	系统：三七拍卖管理后台(Vue+element)、权限后台管理中心(Vue+element)、采购决策系统(Vue+ts+element)、现货晒场2.0 H5(Vue+vant)、跑合拍卖微信小程序(Taro+websocket)、质检2.0微信小程序(Vue+uni-app)  
+	微信小程序: 跑合网、跑合拍卖、有梦必达  
+	![](https://oscimg.oschina.net/oscnet/up-7afadaa665009dacaf52fecb2d7e73f904e.png)
+	![](https://oscimg.oschina.net/oscnet/up-d99cf6dd7572843b51848504b99b49427d3.png) 
 -   **我的联系方式：**  
     邮箱：  
 	[1093473647@qq.com](http://1093473647@qq.com)  
@@ -26,19 +28,14 @@
     ![](https://oscimg.oschina.net/oscnet/up-22ec72db78c99f52ea22b13b21a454e86a6.png)  
     
 -   **我的开源:**  
-	[Github](https://github.com/parchments): Github地址  
-    [money2uppercase](https://www.npmjs.com/package/money2uppercase): 金额转大写  
-    [vue-preview-editor](https://www.npmjs.com/package/vue-preview-editor): 富文本预览插件 
+	[parchments](https://github.com/parchments): Github地址  
+	[nodeExpress](https://github.com/parchments/nodeExpress): 有梦必达(node+express+vue+element-ui+mysql+nginx+微信小程序)  
+	[vue-admin-template](https://github.com/parchments/vue-admin-template): vue-admin-template 轻量级 后台管理系统基础模板  
+    [money2uppercase](https://www.npmjs.com/package/money2uppercase): 金额转大写插件  
+    [vue-preview-editor](https://www.npmjs.com/package/vue-preview-editor): 富文本预览插件  
 
--   **微信小程序**  
+-   **我的个人微信小程序**  
 	![](https://oscimg.oschina.net/oscnet/up-6db35bb99a6b0a87fb356cd3ae644a18e85.JPEG)  
-
-## 学习网站
-&emsp;&emsp;&emsp;&emsp; [Github](https://github.com)  
-&emsp;&emsp;[掘金](https://juejin.im/timeline)  
-&emsp;&emsp;[W3cschool](https://www.w3cschool.cn/)  
-&emsp;&emsp;[腾讯课堂](https://ke.qq.com/)  
-
 
 ## 工作心得  
 **1、对自身：**  
@@ -55,7 +52,7 @@
 &emsp;&emsp;开发项目前一定要理清产品思路、流程，确定开发周期，与后台约定接口字段。  
 
 **2、对开发中遇到问题：**  
-&emsp;&emsp;最重要的是找出问题，马上处理并解决，再来讨论谁对谁错。  
+&emsp;&emsp;最重要的是找出问题，马上处理并解决，再去讨论谁对谁错也不迟。  
 &emsp;&emsp;遇到不懂的问题，各种debugger完还是不能解决，莫急，也别急着google百度博客，先问同事。基本上类似问题，同事也会遇到，如果同事也不知道再google，个人感觉这才是最快的解决问题方式。  
 
 **3、对责任：**  
@@ -76,10 +73,10 @@
 &emsp;&emsp;b、约定是前端跨域还是后台开启（默认后台开启）  
 &emsp;&emsp;c、接口统一使用测试环境（避免直接连开发者电脑，反复重启，省时）  
 &emsp;&emsp;d、后台接口命名方式统一（不管小驼峰、大驼峰、-还是_，同一类型统一就好）  
-&emsp;&emsp;e、接口文档写清楚（参数清楚、罗列所有类型情况，多人开发备注开发者，方便直接找到准人）  
+&emsp;&emsp;e、接口文档写清楚（参数清楚、罗列所有类型、请求示例，多人开发备注开发者，方便找准人）  
 &emsp;&emsp;f、传参方式统一（统一的get或者post，建议少使用get post组合，除非一定）  
 &emsp;&emsp;g、有重启、修改字段、修改接口要及时告知并更新接口文档  
-&emsp;&emsp;h、返回数据格式统一：返回json或者其他格式、返回成功失败状态码、返回结构、分页、排序、时间格式、价格单位换算、提示信息、报错信息等等。报错信息，是400就400，别全部整成500了（这个真有遇到过）    
+&emsp;&emsp;h、返回数据格式统一：后台最好造一些基础并且规范的数据、返回json或者其他格式、返回成功失败状态码、返回结构、分页、上传图片大小配置、排序、时间格式、价格单位换算、数组就传list别让前端转来转去使用、提示信息、报错信息等等。报错信息，是400就400，别全部整成500了    
 **5、建议前端基础工程建设好后先部署测试环境：**  
 &emsp;&emsp;先部署测试环境能避免一些问题，例如：上线之际才发现build失败各种找原因。此时在开发期间把jenkins的build权限给到前端，便于开发和及时发现问题并解决。
   
@@ -92,7 +89,7 @@
 **3、前端团队：**   
 &emsp;&emsp;喜欢前后分离的工作模式，喜欢有上进和热衷专研前端前沿技术的前端团队，并且还有互相帮助、乐于分享的技术氛围。在此想说的是，有着前端团队非常重要，特别是在遇到难题的时候，大家一起想办法专研讨论，能快速发现并解决问题，同时还能提升自己的眼界和拓宽解决问题的思路。  
 **4、福利方面：**   
-&emsp;&emsp;福利方面期望人性化，有替员工着想，最简单的例子：重要节假日放假通知提前发放（特别国庆、春节，大家都是要提前一个月抢票的），个人认为这是体现企业最为人性化、最为员工考虑的优秀品质。
+&emsp;&emsp;福利方面期望人性化，有替员工着想，最简单的例子：重要节假日放假通知提前发放（特别国庆、春节，大家都是要提前一个月抢票的）、加班到凌晨后明天可延迟上班，个人认为这是体现企业最为人性化、最为员工考虑的优秀品质。
 
 ## 职业规划
 ```javascript

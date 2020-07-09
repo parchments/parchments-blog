@@ -52,28 +52,35 @@ module.exports = {
                 // ]
             },
             {
-                text: '面试经典', link: '/interview/'
-                // , items: [
-                //     // { text: '/', link: '/interview/' },
-                //     { text: '面试技巧', link: '/interview/interviewSkills' },
-                //     { text: '面试题', link: '/interview/interviewQuestions' },
-                //     { text: '算法题', link: '/interview/algorithm' }
-                // ]
+                text: '有梦必达', link: '/dreamComeTrue/'
             },
-            {
-                text: '前端进阶', link: '/advanced/'
-                // , items: [
-                //     { text: 'Js基础', link: '/advanced/js' },
-                //     { text: 'Vue原理', link: '/advanced/vue' }
-                // ]
-            },
+            // {
+            //     text: '面试经典', link: '/interview/'
+            //     // , items: [
+            //     //     // { text: '/', link: '/interview/' },
+            //     //     { text: '面试技巧', link: '/interview/interviewSkills' },
+            //     //     { text: '面试题', link: '/interview/interviewQuestions' },
+            //     //     { text: '算法题', link: '/interview/algorithm' }
+            //     // ]
+            // },
+            // {
+            //     text: '那些区别', link: '/difference/'
+            // },
+            // {
+            //     text: '前端进阶', link: '/advanced/'
+            //     // , items: [
+            //     //     { text: 'Js基础', link: '/advanced/js' },
+            //     //     { text: 'Vue原理', link: '/advanced/vue' }
+            //     // ]
+            // },
             { text: '个人简历', link: '/resume/' },
             {
                 text: '开源',
                 items: [
-                    { text: 'money2uppercase', link: 'https://www.npmjs.com/package/money2uppercase' },
-                    { text: 'vue-preview-editor', link: 'https://www.npmjs.com/package/vue-preview-editor' },
-                    { text: 'GitHub', link: 'https://github.com/parchments' }
+                    { text: 'Vue后台管理系统', link: 'https://github.com/parchments/vue-admin-template' },
+                    { text: '有梦必达微信小程序', link: 'https://github.com/parchments/nodeExpress' },
+                    { text: '工具-money2uppercase', link: 'https://www.npmjs.com/package/money2uppercase' },
+                    { text: '工具-vue-preview-editor', link: 'https://www.npmjs.com/package/vue-preview-editor' }
                 ]
             }
         ],
@@ -82,24 +89,18 @@ module.exports = {
             '/templatePlugs/': [
                 '',
                 {
-                    title: '基础模板', // 侧边栏名称
-                    collapsable: true, // 可折叠
-                    children: [
-                        '/templatePlugs/template/vueAdminTemplate',//pc基础模板
-                    ]
-                },
-                {
                     title: '封装Http请求', // 侧边栏名称
                     collapsable: true, // 可折叠
                     children: [
                         '/templatePlugs/httpApi/vueElement',//vue+element
                         // '/templatePlugs/httpApi/vueElementTs',//vue+element+ts
+                        '/templatePlugs/httpApi/uniAppWechat',//uni-app微信小程序
                         '/templatePlugs/httpApi/wechat',//微信小程序
                         '/templatePlugs/httpApi/taro',//京东taro
                     ]
                 },
                 {
-                    title: 'vue环境变量', // 侧边栏名称
+                    title: 'Vue环境变量', // 侧边栏名称
                     collapsable: true, // 可折叠
                     children: [
                         '/templatePlugs/env/vueCli2',
@@ -143,7 +144,7 @@ module.exports = {
                     ]
                 },
                 {
-                    title: 'Vue原理',
+                    title: 'Vue2.0原理',
                     collapsable: false,
                     children: [
                         '/advanced/vue/yuanLi/yunXingJiZhi_1',

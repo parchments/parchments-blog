@@ -1,13 +1,68 @@
-# 模板设想  
-&emsp;&emsp;不想每次做新项目都要重新创建项目，封装分页、接口、面包屑、路由、请求、区分开发环境、配置、兼容等等一系列基础工作，浪费很多时间，故做了一个后台系统的基础模板，能减少重复并且不必要的工作量，从而直接画页面并对接接口。  
+# Vue-admin-template  
 
-#### 前后对接约定建议：
-&emsp;&emsp;a、后台所有的字段尽量跟着原型（做接口不能只考虑自己，方便其他后台、前端和测试查询）  
-&emsp;&emsp;b、约定是前端跨域还是后台开启（默认后台开启）  
-&emsp;&emsp;c、接口统一使用测试环境（避免直接连开发者电脑，反复重启，省时）  
-&emsp;&emsp;d、后台接口命名方式统一（不管小驼峰、大驼峰、-还是_，同一类型统一就好）  
-&emsp;&emsp;e、接口文档写清楚（参数清楚、罗列所有类型情况，多人开发备注开发者，方便直接找到准人）  
-&emsp;&emsp;f、传参方式统一（统一的get或者post，建议少使用get post组合，除非一定）  
-&emsp;&emsp;g、有重启、修改字段、修改接口要及时告知并更新接口文档  
-&emsp;&emsp;h、返回数据格式统一：返回json或者其他格式、返回成功失败状态码、返回结构、分页、排序、时间格式、价格单位换算、提示信息、报错信息等等。报错信息，是400就400，别全部整成500了（这个真有遇到过）    
+## 模板预览  
+[源码地址](https://github.com/parchments/vue-admin-template)  
+
+[预览地址](https://parchments.github.io/vue-admin-template)  
+
+## 模板功能    
+<table>
+  <tbody>
+    <tr>
+      <td>vue版本</td>
+      <td>vue2</td>
+      <td>脚手架</td>
+      <td>vue-cli4</td>
+    </tr>
+    <tr>
+      <td>状态管理器</td>
+      <td>vuex</td>
+      <td>UI框架</td>
+      <td>element-ui</td>
+    </tr>
+    <tr>
+      <td>路由</td>
+      <td>vue-router</td>
+      <td>HTTP请求</td>
+      <td>axios</td>
+    </tr>
+    <tr>
+      <td>接口</td>
+      <td>api.js</td>
+      <td>环境</td>
+      <td>dev test uat prod</td>
+    </tr>
+    <tr>
+      <td>本地存储</td>
+      <td>localStorage</td>
+      <td>css</td>
+      <td>Less</td>
+    </tr>
+    <tr>
+      <td>动态面包屑</td>
+      <td>breadcrumb</td>
+      <td>路由错误</td>
+      <td>404</td>
+    </tr>
+    <tr>
+      <td>时间格式化</td>
+      <td>moment</td>
+      <td>兼容性</td>
+      <td>ie9及以上</td>
+    </tr>
+  </tbody>
+</table>
+    
+  
+## 模板截图    
+![](https://oscimg.oschina.net/oscnet/up-8be46288eb653187476ccde1f3a7422ad50.png)
+
+![](https://oscimg.oschina.net/oscnet/up-3c9749ea63797ffd152417d4da74a10df15.png)
+
+![](https://oscimg.oschina.net/oscnet/up-37480aed6b59e3467a6a836531476a4e236.png)
+
+![](https://oscimg.oschina.net/oscnet/up-bfd112506b794049853f907b447ad3dff52.png)
+
+![](https://oscimg.oschina.net/oscnet/up-1cc916bfd1d4c91adc83067521b89293d7d.png)
+
 

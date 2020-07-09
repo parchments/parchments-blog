@@ -1,8 +1,9 @@
 # Vue-admin-template  
 
 ## 模板预览  
-[模板源码](https://github.com/parchments/vue-admin-template)  
-[模板预览](https://parchments.github.io/vue-admin-template)  
+[源码地址](https://github.com/parchments/vue-admin-template)  
+
+[预览地址](https://parchments.github.io/vue-admin-template)  
 
 ## 模板功能    
 <table>
