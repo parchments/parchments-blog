@@ -17,8 +17,8 @@
     主Vue+Element+Vant，副微信小程序、Taro、uni-app、React+antd    
 	H5：[现货晒场2.0](https://www.paohe.cn/spotV2/login/)、[慧招网H5](http://m.hvzhao.com/)、[优亚官网H5(F12手机预览模式)](http://www.uniasia.com.cn/mobile/index)、<!-- [拍卖中心H5(参与)](https://pmwechat.paohe.cn/login) --> 等等  
     网站：[慧招网PC](http://www.hvzhao.com/)、[光明招商网PC](http://gmcyzs.com/)、[优亚官网](http://www.uniasia.com.cn/)、[招商产业地图](http://zhongshan.hvzhao.com/)  
-	系统：三七拍卖管理后台(Vue+element)、权限后台管理中心(Vue+element)、采购决策系统(Vue+ts+element)、现货晒场2.0 H5(Vue+vant)、跑合拍卖微信小程序(Taro+websocket)、质检2.0微信小程序(Vue+uni-app)  
-	微信小程序: 跑合网、跑合拍卖、有梦必达  
+	系统：独立负责公司三七拍卖管理后台(Vue+element)、权限后台管理中心(Vue+element)、采购决策系统(Vue+ts+element+websocket)、现货晒场H5(Vue+vant)等前端开发工作     
+	微信小程序: 跑合拍卖(Taro+websocket)、跑合网(Vue+uni-app) 、有梦必达(vue+vant)   
 	![](https://oscimg.oschina.net/oscnet/up-7afadaa665009dacaf52fecb2d7e73f904e.png)
 	![](https://oscimg.oschina.net/oscnet/up-d99cf6dd7572843b51848504b99b49427d3.png) 
 -   **我的联系方式：**  
