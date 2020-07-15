@@ -5,7 +5,7 @@
 
 -   **我的描述:**  
 	戴眼镜，短头发，自认为阳光的男孩  
-	设计专业毕业，4年前端开发经验  
+	设计专业毕业，5年前端开发经验  
 	兴趣爱好是乒乓球、桌球   
 
 -   **我的优势:**  
@@ -14,7 +14,7 @@
     3、对代码有要求，必须过自己那关  
 
 -   **独立开发经验:**  
-    前后分离，PC、H5、微信小程序，主Vue，框架:Element、Vant、Taro  
+    主Vue+Element+Vant，副微信小程序、Taro、uni-app、React+antd    
 	H5：[现货晒场2.0](https://www.paohe.cn/spotV2/login/)、[慧招网H5](http://m.hvzhao.com/)、[优亚官网H5(F12手机预览模式)](http://www.uniasia.com.cn/mobile/index)、<!-- [拍卖中心H5(参与)](https://pmwechat.paohe.cn/login) --> 等等  
     网站：[慧招网PC](http://www.hvzhao.com/)、[光明招商网PC](http://gmcyzs.com/)、[优亚官网](http://www.uniasia.com.cn/)、[招商产业地图](http://zhongshan.hvzhao.com/)  
 	系统：三七拍卖管理后台(Vue+element)、权限后台管理中心(Vue+element)、采购决策系统(Vue+ts+element)、现货晒场2.0 H5(Vue+vant)、跑合拍卖微信小程序(Taro+websocket)、质检2.0微信小程序(Vue+uni-app)  
